@@ -27,8 +27,8 @@ function isCycle(arr){
     }
 }
 
-let loopArr = [1,2,1,6];
-let notLoopArr = [0, 1];
+let loopArr = [0, 1];
+let notLoopArr = [1,2,3,6];
 
 console.log(
     isCycle(notLoopArr)
