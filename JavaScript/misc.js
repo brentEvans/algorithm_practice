@@ -34,3 +34,34 @@ console.log(
     isCycle(notLoopArr)
 );
 
+
+
+//FIND CYCLE IN ARRAY
+//Assumptions ------>
+// 1) Start at the 0 index
+// 2) The value of arr[i] is set as the next index (i) to go to
+//     eg [1,4,6,5,3,4] begin at index 0 --> arr[0] = 1 now go to index 1 --> arr[1] = 4 now go to index 4 --> arr[4] = 3 now go to index 3 --> arr[3] = 5 now go to index 5 --> arr[5] = 4 now go to index 4 --> This is a cyclic array (infinitely repeating)
+// 3) One number must be greater than or equal to array.length (otherwise will always infinitely repeat)
+//GOAL : check if infinite loop or not
+
+
+function cyclicArray(arr){
+    let i=0, 
+    count =0;
+    //create checks to see if arr[0] or i itself are out of bounds of the array, if so exit the loop
+    while((i >=0 && arr[i]>=0) || (i <arr.length && arr[i] <arr.length)) {
+        //if the count is greater than arr.length-1 that means one element is visited twice therefore there is a cycle
+        if(count>= arr.length) {
+            console.log("there is a cycle in the array");
+            return true;
+        }
+        //
+        else{
+            //increment counter and traverse to next index from current index value
+            count++;
+            i = arr[i];
+        }
+    }
+    console.log("no cycle in array");
+    return false;
+}
